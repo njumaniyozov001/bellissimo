@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Footer from '../footer/footer';
+
 
 function restaranlar() {
     const location=[
@@ -56,7 +56,9 @@ function restaranlar() {
     <div className='w-fll flex items-center justify-center gap-4 flex-col p-4'>
      {location.map(item=>{
         return(
-        <div className='relative w-[90%] h-[150px] bg-gray-100 shadow-md rounded-2xl  p-3'>
+        <div 
+        key={item.name}
+        className='relative w-[90%] h-[150px] bg-gray-100 shadow-md rounded-2xl  p-3'>
             <p className='text-[20px] font-bold text-slate-500 '>{item.name}</p>
             <p className=' font-thin'>{item.location}</p>
             <p className=' font-thin'>{item.schedule}</p>

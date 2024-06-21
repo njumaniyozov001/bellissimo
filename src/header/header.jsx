@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <div className="h-[100px] relative w-full flex items-center justify-center gap-[30px] ">
+    <div className="sm:h-[100px] sm:w-full hidden relative  sm:flex items-center justify-center gap-[30px] ">
       <div
         className={`w-full ${
           openImg ? "fixed top-0 bg-white z-10" : ""
