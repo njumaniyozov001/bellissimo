@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+  }
+h6{
+   font-family:cursive;
+   color: white;
+}
+.x > input{
+background: transparent;
+font-size: 20px;
+}
+placeholder::after2{
+  color: black;
+}
