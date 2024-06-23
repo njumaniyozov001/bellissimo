@@ -245,26 +245,26 @@ const Body = () => {
           <div
             key={item.name}
             id="card"
-            className="sm:w-[300px] sm:h-[400px] w-[200px] h-[250px] shadow-2xl sm:text-[16px] text-[12px] sm:leading-5 leading-[15px] rounded-2xl p-2 relative bg-gray-500  hover:scale-[1.03] transition-transform duration-300"
+            className="sm:w-[280px] sm:h-[360px] w-[180px] h-[230px]  sm:text-[16px] text-[12px] sm:leading-5 leading-[15px] rounded-2xl p-2 relative   hover:scale-[1.03] transition-transform duration-300 shadow-md"
           >
             <div className="flex items-center justify-center">
-              <img src={item.img} className="w-[280px] rounded-2xl" />
+              <img src={item.img} className="w-[240px] rounded-2xl" />
             </div>
-            <div>
+            <div className="sm:px-4">
               <p className="font-bold leading-2">{item.name}</p>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
                 voluptatibus?
               </p>
             </div>
-            <p className="sm:w-[50px] sm:h-[20px] w-[40px] h-[15px]  absolute  sm:bottom-5 bottom-2 bg-gray-400 flex items-center justify-center rounded-2xl mt-4">
+            <p className="sm:w-[50px] sm:h-[20px] w-[40px] h-[15px]  absolute  sm:bottom-5 bottom-[5px] sm:left-5 bg-gray-400 flex items-center justify-center rounded-2xl mt-4">
               {item.price}
             </p>
           </div>
         ))}
       </div>
 
-      <footer className="w-[100%] sm:h-[300px] h-[120px] flex items-center justify-center sm:gap-[300px] gap-3 p-10 bg-black mt-3">
+      <footer className="w-[100%] sm:h-[300px] h-[120px] flex items-center justify-center sm:gap-[300px] gap-5 px-2 bg-black mt-3">
         <div>
           <h6 className="sm:text-[25px] text-[14px] sm:ml-[50px] ">Restaurant </h6>
           <h6 className="sm:text-[42px] text-[18px] sm:mr-[50px] ">Bellisimo</h6>
@@ -272,17 +272,17 @@ const Body = () => {
         </div>
         <div>
           <Link to={"/about"}>
-            <h6 className="sm:text-[16px] text-[12px] hover:underline hover:cursor-pointer">
+            <h6 className="sm:text-[16px] text-[14px] hover:underline hover:cursor-pointer">
               Biz haqimizda
             </h6>
           </Link>
           <Link to={"/halal"}>
-            <h6 className="sm:text-[16px] text-[12px] hover:underline hover:cursor-pointer">
+            <h6 className="sm:text-[16px] text-[14px] hover:underline hover:cursor-pointer">
               Halal certifacate
             </h6>
           </Link>
           <Link to={"/restaurants"}>
-            <h6 className="sm:text-[16px] text-[12px] hover:underline hover:cursor-pointer">
+            <h6 className="sm:text-[16px] text-[14px] hover:underline hover:cursor-pointer">
               Restaranlar
             </h6>
           </Link>
@@ -291,10 +291,10 @@ const Body = () => {
           <h6 className="sm:text-[16px] text-[12px]">Bizni kuzatib boring</h6>
           <div className="flex">
             <a href="https://t.me/njuma1yozov">
-              <RiTelegramLine className="text-white rounded-full sm:w-[30px] sm:h-[30px] w-[25px] h-[25px] hover:scale-[1.1] transition-transform bg-transparent" />
+              <RiTelegramLine className="text-white rounded-full sm:w-[40px] sm:h-[40px] w-[26px] h-[26px] hover:scale-[1.1] transition-transform bg-transparent" />
             </a>
             <a href="https://instagram.com/njumaiyozov007">
-              <FaInstagram className="text-white rounded-full sm:w-[30px] sm:h-[30px] w-[25px] h-[25px] hover:scale-[1.1] transition-transform bg-transparent" />
+              <FaInstagram className="text-white rounded-full sm:w-[40px] sm:h-[40px] w-[26px] h-[26px] hover:scale-[1.1] transition-transform bg-transparent" />
             </a>
           </div>
         </div>
