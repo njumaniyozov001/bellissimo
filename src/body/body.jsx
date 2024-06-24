@@ -114,21 +114,32 @@ const Body = () => {
   }, []);
 
   return (
-    <div>
-      <Swiper modules={[Navigation, Pagination]} navigation pagination loop>
-        <SwiperSlide>
-          <img src={im1} className="sm:h-[400px] sm:w-[90vw] w-[70vw] h-[200px]   m-auto rounded-2xl" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={im2} className="sm:h-[400px] sm:w-[90vw] w-[70vw] h-[200px]   m-auto rounded-2xl" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={im3} className="sm:h-[400px] sm:w-[90vw] w-[70vw] h-[200px]   m-auto rounded-2xl" />
-        </SwiperSlide>
-      </Swiper>
+    <div className="mt-5">
+      <div className="flex items-center justify-center">
+        <Swiper modules={[Navigation, Pagination]} navigation pagination loop>
+          <SwiperSlide>
+            <img
+              src={im1}
+              className="sm:h-[400px] sm:w-[90vw] w-[85vw] h-[150px]   m-auto rounded-2xl"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src={im2}
+              className="sm:h-[400px] sm:w-[90vw] w-[85vw] h-[150px]   m-auto rounded-2xl"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src={im3}
+              className="sm:h-[400px] sm:w-[90vw] w-[85vw] h-[150px]   m-auto rounded-2xl"
+            />
+          </SwiperSlide>
+        </Swiper>
+      </div>
 
-      <div className="flex items-center justify-center flex-wrap sm:gap-[60px] gap-[12px] mt-[40px]">
-        <div className="sm:w-[400px] sm:h-[40px] sm:text-[16px] w-[250px] h-[25px]  text-[12px] flex items-center justify-center  sm:gap-[60px] gap-[10px] rounded-[45px] bg-gray-100">
+      <div className="flex items-center justify-center sm:flex-row flex-col gap-3 sm:justify-around  mt-[40px]">
+        <div className="sm:w-[400px] sm:h-[40px] sm:text-[16px] w-[220px] h-[25px]  text-[12px] flex items-center justify-center  sm:gap-[60px] gap-[10px] rounded-[45px] bg-gray-100">
           <div
             onClick={deliver}
             className={`sm:w-[200px] sm:h-[30px] w-[150px] h-[16px] hover:cursor-pointer text-center rounded-[45px] ml-1  flex items-center  justify-center ${
@@ -148,13 +159,16 @@ const Body = () => {
         </div>
         <div
           onClick={chooseService}
-          className="sm:w-[600px] sm:h-[40px] w-[220px] h-[25px] sm:text-[20px] text-[12px] rounded-xl flex items-center justify-between border-[1px] border-orange-500 text-orange-500 hover:cursor-pointer"
+          className="sm:w-[500px] sm:h-[40px] w-[220px] h-[25px] sm:text-[16px] text-[12px] rounded-xl flex items-center justify-between border-[1px] border-orange-500 text-orange-500 hover:cursor-pointer"
         >
           {isDeliver && (
             <p className="ml-2">Yetkazib berish manzilini tanlang</p>
           )}
           {isReceive && <p className="ml-2">{filial}</p>}
-          <img src={pen} className="sm:w-[20px] w-[16px] text-orange-500 mr-2" />
+          <img
+            src={pen}
+            className="sm:w-[20px] w-[16px] text-orange-500 mr-2"
+          />
         </div>
       </div>
       {modalService && (
@@ -168,8 +182,8 @@ const Body = () => {
           >
             <p className="sm:text-[16px] text-[12px] font-bold">bla bla bla</p>
             <p className="sm:text-[16px] text-[12px]">
-              Saytning toooooo'liq funksiyasidan <br />foydalanish uchun 
-              tizimga kiring
+              Saytning toooooo'liq funksiyasidan <br />
+              foydalanish uchun tizimga kiring
             </p>
             <button className="sm:px-[100px] sm:py-[10px] px-[40px] py-[1px] rounded-[35px] bg-green-500">
               Tizimga kirish
@@ -190,7 +204,7 @@ const Body = () => {
               >
                 <div className="ml-2 sm:text-[16px] text-[12px]">
                   <p className="font-bold">{item.name}</p>
-                  <p >{item.location}</p>
+                  <p>{item.location}</p>
                   <p className="font-thin font-serif">
                     Ish vaqti: <br />
                     {item.schedule}
@@ -208,37 +222,34 @@ const Body = () => {
         </div>
       )}
 
-      <div className="flex items-center justify-around flex-wrap h-[50px] mt-6">
-        <div className="flex text-[18px] flex-wrap gap-5">
-          <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
-            Kombo
-          </div>
-          <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
-            Pitsa
-          </div>
-          <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
-            Gazaklar
-          </div>
-          <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
-            Ichimliklar
-          </div>
-          <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
-            Salatlar
-          </div>
-          <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
-            Desertlar
-          </div>
-          <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
-            Ichimliklar
-          </div>
+      <div className="flex items-center justify-center  flex-wrap gap-3  mt-6">
+        <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
+          Kombo
+        </div>
+        <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
+          Pitsa
+        </div>
+        <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
+          Gazaklar
+        </div>
+        <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
+          Ichimliklar
+        </div>
+        <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
+          Salatlar
+        </div>
+        <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
+          Desertlar
+        </div>
+        <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
+          Ichimliklar
+        </div>
         <Link
           to={"/cart"}
-          className="sm:w-[130px] sm:h-[25px] w-[100px] h-[18px]  sm:text-[18px] text-[14px] flex items-center gap-1 hover:cursor-pointer hover:scale-105  rounded-2xl px-2 bg-red-500"
+          className="sm:w-[90px] sm:h-[25px] w-[70px] h-[18px]  sm:text-[18px] text-[14px] flex items-center gap-1 hover:cursor-pointer hover:scale-105  rounded-2xl px-2 bg-red-500"
         >
-          <p>Savatcha |</p>
-          <p>0</p>
+          <p>Savatcha</p>
         </Link>
-        </div>
       </div>
       <div className="flex items-center justify-center gap-4 mt-4 flex-wrap">
         {data.map((item) => (
@@ -264,11 +275,17 @@ const Body = () => {
         ))}
       </div>
 
-      <footer className="w-[100%] sm:h-[300px] h-[120px] flex items-center justify-center sm:gap-[300px] gap-5 px-2 bg-black mt-3">
+      <footer className="w-[100%] sm:h-[300px] h-[120px] flex items-center justify-center sm:gap-[300px] gap-7  bg-black mt-3">
         <div>
-          <h6 className="sm:text-[25px] text-[14px] sm:ml-[50px] ">Restaurant </h6>
-          <h6 className="sm:text-[42px] text-[18px] sm:mr-[50px] ">Bellisimo</h6>
-          <h6 className="sm:text-[20px] text-[12px]">Bizga qo'ng'iroq qiling - 8022</h6>
+          <h6 className="sm:text-[25px] text-[14px] sm:ml-[50px] ">
+            Restaurant{" "}
+          </h6>
+          <h6 className="sm:text-[42px] text-[18px] sm:mr-[50px] ">
+            Bellisimo
+          </h6>
+          <h6 className="sm:text-[20px] text-[12px]">
+            Bizga qo'ng'iroq qiling - 8022
+          </h6>
         </div>
         <div>
           <Link to={"/about"}>
