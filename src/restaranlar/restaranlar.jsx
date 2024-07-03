@@ -57,7 +57,7 @@ function restaranlar() {
      {location.map(item=>{
         return(
         <div 
-        key={item.name}
+        key={item.id}
         className='relative w-[90%] h-[150px] bg-gray-100 shadow-md rounded-2xl  p-3'>
             <p className='text-[20px] font-bold text-slate-500 '>{item.name}</p>
             <p className=' font-thin'>{item.location}</p>

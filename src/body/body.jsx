@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import Nav from "../nav";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -15,6 +17,7 @@ import pen from "./body_img/pen.png";
 import { Link, useNavigate } from "react-router-dom";
 import { RiTelegramLine } from "react-icons/ri";
 import { FaInstagram } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa";
 
 import axios from "axios";
 
@@ -113,9 +116,17 @@ const Body = () => {
     axios.get(API).then((res) => setData(res.data));
   }, []);
 
+  const [nav, setNav] = useState(false);
+  const openNav = () => {
+    setNav(!nav);
+  };
+  const closeNav = () => {
+    setNav(false);
+  };
+
   return (
-    <div className="mt-5">
-      <div className="flex items-center justify-center">
+    <div className="mt-5 relative w-[100%] h-[100vh] ">
+      <div className="flex items-center justify-center ">
         <Swiper modules={[Navigation, Pagination]} navigation pagination loop>
           <SwiperSlide>
             <img
@@ -137,12 +148,23 @@ const Body = () => {
           </SwiperSlide>
         </Swiper>
       </div>
+      {nav && (
+        <div className={`z-30 bg-black bg-opacity-40 fixed inset-0`}>
+          <Nav closeNav={closeNav} />
+        </div>
+      )}
+      <div
+        onClick={openNav}
+        className="absolute left-0 top-[200px] w-6 h-6 bg-white shadow-md rounded-full flex items-center justify-center hover:cursor-pointer"
+      >
+        {!nav ? "=" : "X"}
+      </div>
 
       <div className="flex items-center justify-center sm:flex-row flex-col gap-3 sm:justify-around  mt-[40px]">
         <div className="sm:w-[400px] sm:h-[40px] sm:text-[16px] w-[220px] h-[25px]  text-[12px] flex items-center justify-center  sm:gap-[60px] gap-[10px] rounded-[45px] bg-gray-100">
           <div
             onClick={deliver}
-            className={`sm:w-[200px] sm:h-[30px] w-[150px] h-[16px] hover:cursor-pointer text-center rounded-[45px] ml-1  flex items-center  justify-center ${
+            className={`sm:w-[200px] sm:h-[30px] w-[150px] h-[20px] hover:cursor-pointer text-center rounded-[45px] ml-1  flex items-center  justify-center ${
               isDeliver ? "bg-white" : ""
             }`}
           >
@@ -150,7 +172,7 @@ const Body = () => {
           </div>
           <div
             onClick={receive}
-            className={`sm:w-[200px] sm:h-[30px] w-[150px] h-[16px] hover:cursor-pointer text-center rounded-[45px] mr-1  flex items-center justify-center ${
+            className={`sm:w-[200px] sm:h-[30px] w-[150px] h-[20px] hover:cursor-pointer text-center rounded-[45px] mr-1  flex items-center justify-center ${
               isReceive ? "bg-white" : ""
             }`}
           >
@@ -178,16 +200,18 @@ const Body = () => {
         >
           <div
             onClick={chooseService}
-            className="sm:w-[400px] sm:h-[170px] w-[250px] h-[120px] z-30 flex items-center justify-center sm:gap-2 gap-1 flex-col text-center rounded-3xl bg-white"
+            className="sm:w-[400px] sm:h-[170px] w-[250px] h-[150px] z-30 flex items-center justify-center sm:gap-2 gap-3 flex-col text-center rounded-3xl bg-white"
           >
             <p className="sm:text-[16px] text-[12px] font-bold">bla bla bla</p>
             <p className="sm:text-[16px] text-[12px]">
               Saytning toooooo'liq funksiyasidan <br />
               foydalanish uchun tizimga kiring
             </p>
-            <button className="sm:px-[100px] sm:py-[10px] px-[40px] py-[1px] rounded-[35px] bg-green-500">
-              Tizimga kirish
-            </button>
+            <Link to={"/Kirish"}>
+              <button className="sm:px-[100px] sm:py-[10px] px-[40px] py-[1px] rounded-[35px] bg-green-500">
+                Tizimga kirish
+              </button>
+            </Link>
           </div>
         </div>
       )}
@@ -196,11 +220,11 @@ const Body = () => {
           onClick={() => setModalReceive(false)}
           className="fixed inset-0 z-20 flex items-center justify-center bg-black bg-opacity-40"
         >
-          <div className=" relative sm:h-[500px] sm:w-[450px] h-[300px] w-[300px] flex items-center justify-center flex-row flex-wrap py-4 gap-3 rounded-[30px] overflow-y-scroll hide-scrollbar bg-white">
+          <div className=" relative sm:h-[500px] sm:w-[450px] h-[300px] w-[300px] flex items-center justify-center flex-row flex-wrap py-4 gap-3 sm:rounded-[30px] rounded-[20px] overflow-y-scroll hide-scrollbar bg-white">
             {location.map((item) => (
               <div
                 key={item.id}
-                className=" sm:w-[400px] sm:h-[100px] w-[250px] h-[60px] flex justify-between items-center sm:leading-5 leading-[13px] rounded-2xl bg-gray-100 shadow-black"
+                className=" sm:w-[400px] sm:h-[100px] w-[250px] h-[60px] flex justify-between items-center sm:leading-5 leading-[13px] sm:rounded-2xl rounded-[10px] bg-gray-100 shadow-black"
               >
                 <div className="ml-2 sm:text-[16px] text-[12px]">
                   <p className="font-bold">{item.name}</p>
@@ -222,7 +246,9 @@ const Body = () => {
         </div>
       )}
 
-      <div className="flex items-center justify-center  flex-wrap gap-3  mt-6">
+      <div
+        className={`flex items-center justify-center z-10 flex-wrap mt-5 gap-3 sticky top-0 bg-white sm:h-10 sm:w-full p-1`}
+      >
         <div className="sm:w-[100px] sm:h-[25px] w-[65px] h-[18px] sm:text-[16px] text-[12px] rounded-2xl bg-slate-100 text-center hover:bg-slate-300">
           Kombo
         </div>
@@ -263,7 +289,7 @@ const Body = () => {
             </div>
             <div className="sm:px-4">
               <p className="font-bold leading-2">{item.name}</p>
-              <p>
+              <p className="sm:text-[16px] text-[11px]">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
                 voluptatibus?
               </p>
@@ -275,7 +301,7 @@ const Body = () => {
         ))}
       </div>
 
-      <footer className="w-[100%] sm:h-[300px] h-[120px] flex items-center justify-center sm:gap-[300px] gap-7  bg-black mt-3">
+      <footer className="w-[100%] sm:h-[200px] h-[120px] flex items-center justify-center sm:gap-[300px] gap-10  bg-black mt-3">
         <div>
           <h6 className="sm:text-[25px] text-[14px] sm:ml-[50px] ">
             Restaurant{" "}
@@ -284,34 +310,52 @@ const Body = () => {
             Bellisimo
           </h6>
           <h6 className="sm:text-[20px] text-[12px]">
-            Bizga qo'ng'iroq qiling - 8022
+            Qo'ng'iroq qiling - 8022
           </h6>
         </div>
         <div>
-          <Link to={"/about"}>
-            <h6 className="sm:text-[16px] text-[14px] hover:underline hover:cursor-pointer">
+          <Link
+            to={"/about"}
+            onClick={() => {
+              document.title = "about";
+            }}
+          >
+            <h6 className="sm:text-[20px] text-[14px] hover:underline hover:cursor-pointer">
               Biz haqimizda
             </h6>
           </Link>
-          <Link to={"/halal"}>
-            <h6 className="sm:text-[16px] text-[14px] hover:underline hover:cursor-pointer">
+          <Link
+            to={"/halal"}
+            onClick={() => {
+              document.title = "halal";
+            }}
+          >
+            <h6 className="sm:text-[20px] text-[14px] hover:underline hover:cursor-pointer">
               Halal certifacate
             </h6>
           </Link>
-          <Link to={"/restaurants"}>
-            <h6 className="sm:text-[16px] text-[14px] hover:underline hover:cursor-pointer">
+          <Link
+            to={"/restaurants"}
+            onClick={() => {
+              document.title = "restaranlar";
+            }}
+          >
+            <h6 className="sm:text-[20px] text-[14px] hover:underline hover:cursor-pointer">
               Restaranlar
             </h6>
           </Link>
         </div>
         <div>
-          <h6 className="sm:text-[16px] text-[12px]">Bizni kuzatib boring</h6>
-          <div className="flex">
+          <h6 className="sm:text-[20px] text-[12px]">Bizni kuzatib boring</h6>
+          <div className="flex gap-1">
             <a href="https://t.me/njuma1yozov">
               <RiTelegramLine className="text-white rounded-full sm:w-[40px] sm:h-[40px] w-[26px] h-[26px] hover:scale-[1.1] transition-transform bg-transparent" />
             </a>
-            <a href="https://instagram.com/njumaiyozov007">
+            <a href="https://instagram.com/njumaniyozov007">
               <FaInstagram className="text-white rounded-full sm:w-[40px] sm:h-[40px] w-[26px] h-[26px] hover:scale-[1.1] transition-transform bg-transparent" />
+            </a>
+            <a href="https://github.com/njumaniyozov">
+              <FaGithub className="text-white rounded-full sm:w-[40px] sm:h-[40px] w-[25px] h-[25px] hover:scale-[1.1] transition-transform bg-transparent" />
             </a>
           </div>
         </div>
