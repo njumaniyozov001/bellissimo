@@ -18,6 +18,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { RiTelegramLine } from "react-icons/ri";
 import { FaInstagram } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
+import { IoMenu } from "react-icons/io5";
 
 import axios from "axios";
 
@@ -123,6 +124,9 @@ const Body = () => {
   const closeNav = () => {
     setNav(false);
   };
+  const selectFood=(id)=>{
+console.log(id);
+  }
 
   return (
     <div className="mt-5 relative w-[100%] h-[100vh] ">
@@ -148,17 +152,18 @@ const Body = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      {nav && (
-        <div className={`z-30 bg-black bg-opacity-40 fixed inset-0`}>
+      {nav ? (
+        <div className={`fixed inset-0 z-30 bg-black bg-opacity-40 `}>
           <Nav closeNav={closeNav} />
         </div>
+      ) : (
+        <div
+          onClick={openNav}
+          className="absolute sm:hidden left-2 top-[34%] text-black   flex items-center justify-center hover:cursor-pointer"
+        >
+          <IoMenu className="w-6 h-6 rounded-full" />
+        </div>
       )}
-      <div
-        onClick={openNav}
-        className="absolute left-0 top-[200px] w-6 h-6 bg-white shadow-md rounded-full flex items-center justify-center hover:cursor-pointer"
-      >
-        {!nav ? "=" : "X"}
-      </div>
 
       <div className="flex items-center justify-center sm:flex-row flex-col gap-3 sm:justify-around  mt-[40px]">
         <div className="sm:w-[400px] sm:h-[40px] sm:text-[16px] w-[220px] h-[25px]  text-[12px] flex items-center justify-center  sm:gap-[60px] gap-[10px] rounded-[45px] bg-gray-100">
@@ -282,6 +287,7 @@ const Body = () => {
           <div
             key={item.name}
             id="card"
+            onClick={()=>{selectFood(item.id)}}
             className="sm:w-[280px] sm:h-[360px] w-[180px] h-[230px]  sm:text-[16px] text-[12px] sm:leading-5 leading-[15px] rounded-2xl p-2 relative   hover:scale-[1.03] transition-transform duration-300 shadow-md"
           >
             <div className="flex items-center justify-center">

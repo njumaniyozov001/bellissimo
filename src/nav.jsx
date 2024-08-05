@@ -23,7 +23,7 @@ function Nav({ closeNav }) {
   }
 
   return (
-    <div className="absolute top-0 left-0 px-2 w-[200px] h-[100vh] z-30 flex gap-5 text-[12px] flex-col bg-white shadow-md">
+    <div className="absolute top-0 left-0 px-2 w-[70%] h-[100vh] z-30 flex gap-5 text-[12px] flex-col bg-white shadow-md">
       <div 
         onClick={openCity}
         className={`mt-2 flex justify-between items-center h-[40px] bg-gray-50 rounded-3xl px-5 ${loc ? 'shadow-sm' : ''} `}>
@@ -69,7 +69,7 @@ function Nav({ closeNav }) {
       </div>
       <div
         onClick={closeNav}
-        className="absolute top-1 w-6 h-6 bg-white shadow-md rounded-full flex items-center justify-center left-[200px] hover:cursor-pointer">
+        className="absolute top-1 w-6 h-6 bg-white shadow-md rounded-full flex items-center justify-center left-[100%] hover:cursor-pointer">
         X
       </div>
     </div>
